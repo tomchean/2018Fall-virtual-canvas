@@ -1,6 +1,7 @@
 from bluepy.btle import Peripheral, UUID
 from bluepy.btle import Scanner, DefaultDelegate
-
+import globalv as gl
+from pynput.mouse import Button, Controller
 import threading
 
 class MyDelegate(DefaultDelegate):
@@ -15,9 +16,13 @@ class MyDelegate(DefaultDelegate):
         if (cHandle== self.button1_handle ):
             print("button1")
             if self.state ==0:
+                mouse = gl.get_value('mouse')
+                mouse.press(Button.left)
                 self.state =1
             elif self.state ==1 :
                 self.state =0
+                mouse = gl.get_value('mouse')
+                mouse.release(Button.left)
         elif (cHandle== self.button2_handle ):
             reset()
 def reset():
