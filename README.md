@@ -1,4 +1,4 @@
-
+# Intro
 ## Motivation
 During the daily usage of computer graphic software, it seems that using digital tablets with its matching pen can do a lot better than just using the mouse.
 
