@@ -83,6 +83,7 @@ The pen is combined with 7697-linkit to get its clicking function.  The tip of i
 Being connected by PC's BLE server as a peripheral. Set and waited for button state-change notification on PC.
 Power supply needed for running the BLE peripheral.
 
+
 ## Reference
 - [OpenCV](https://opencv.org/)
 
@@ -91,4 +92,3 @@ Power supply needed for running the BLE peripheral.
 - [pynput](https://pypi.org/project/pynput/)
 
 - [bluepy](https://ianharvey.github.io/bluepy-doc/)
-
