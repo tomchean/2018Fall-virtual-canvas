@@ -27,15 +27,16 @@ The programs are written in Python.
 `cv2` is how the OpenCV library is imported in code. 
 Because we use OpenCV's image capturing and processing functions, `numpy (imported as np)` is used in their input/output to represent the data format of images. 
 
-As beginning, Rpi is connected with the USB camera, as video input device.  Then we assign `cap = cv2.VideoCapture()` so that we can read the frames from `cap` anytime for any part of the processing.
+As beginning, Rpi is connected with the USB camera, as video input device.  Then we assign `cap = cv2.VideoCapture()` so that we can read the frames from `cap` anytime for any part of the processing.  `contours` and some points decisive to shape are drawn and stored after filtering the target, so they can be used to analyze feature of the shape(e.g. pen tip in the whole pen) or decide the relative position.
 
-概述opencv?
+After the camera "sees" the movement of pentip on the predecided 'canvas', Rpi sends the current position through the web socket to PC, to alter the position of cursor.
 #### Detection of canvas
 canvas取得之圖
-或許有一小段示意程式碼?
+In code, we specify the canvas part `mask`. By placing a piece of paper and pre-recognizing it, the canvas area is selected (it can be any irregular quadrilateral) and the vertices are recorded to calculate the relative position.
+
 #### Tracking the pen
 圖
-示意講解?
+While the program's running, it repeatly capture a frame and determine the pentip by drawing contours around marked part(neartip) of pen and
 ### PC
 pynput語法示意
 或許可以用function執行前後的截圖來呈現
