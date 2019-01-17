@@ -51,9 +51,14 @@ if __name__ == "__main__":
         cnts, _ = cv2.findContours(blurred.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         if(len(cnts)):
             c = max(cnts, key = cv2.contourArea)
+            M = cv2.moments(c)
+            '''
             extBot = tuple(c[c[:, :, 1].argmax()][0])
             x = 1920 - (extBot[0] - xmin)*multx
             y = 1080 -(extBot[1] - ymin)*multy
+            '''
+            x = 1920 - (int(M["m10"] / M["m00"]) - xmin)*multx
+            y = 1080 -(int(M["m01"] / M["m00"]) - ymin)*multy
             msg = str(x)+" "+str(y)+" "
             print(msg)
             conn.send(msg.encode('utf-8')) 
