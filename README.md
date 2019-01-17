@@ -82,17 +82,13 @@ The pen is combined with 7697-linkit to get its clicking function.  The tip of i
 #### BLE periphral -- 7697
 Being connected by PC's BLE server as a peripheral. Set and waited for button state-change notification on PC.
 Power supply needed for running the BLE peripheral.
-## Execution
-在持有所需的器材時
-如何利用GitHub上的檔案執行此功能
+
 ## Reference
-opencv的
+- [OpenCV](https://opencv.org/)
 
-opencv的(依不同部分)
+- [Socket](https://docs.python.org/3/library/socket.html)
 
-socket?
+- [pynput](https://pypi.org/project/pynput/)
 
-pynput
-
-bluepy
+- [bluepy](https://ianharvey.github.io/bluepy-doc/)
 
