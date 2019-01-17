@@ -13,8 +13,8 @@ class MyDelegate(DefaultDelegate):
         self.button2_handle =0
     def handleNotification(self, cHandle, data):
         
-        if (cHandle== self.button1_handle ):
-            print("button1")
+        if (cHandle== self.button2_handle ):
+            #print("button1")
             if self.state ==0:
                 mouse = gl.get_value('mouse')
                 mouse.press(Button.left)
@@ -23,10 +23,10 @@ class MyDelegate(DefaultDelegate):
                 self.state =0
                 mouse = gl.get_value('mouse')
                 mouse.release(Button.left)
-        elif (cHandle== self.button2_handle ):
-            reset()
-def reset():
-    print("1")
+        '''
+        elif (cHandle== self.button1_handle ):
+            continue
+        '''    
 
 
 ## ble button setup

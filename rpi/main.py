@@ -58,10 +58,10 @@ if __name__ == "__main__":
             print(msg)
             conn.send(msg.encode('utf-8')) 
             
-            cv2.circle(image, extBot , 3, (255, 0, 0), -1)
+            #cv2.circle(image, extBot , 3, (255, 0, 0), -1)
             #print(extBot)
             
-        cv2.imshow("Tracking", image)
-        cv2.waitKey(0.1)
+        #cv2.imshow("Tracking", image)
+        #cv2.waitKey(0.1)
     conn.close()
     mySocket.close()
