@@ -70,7 +70,7 @@ In PC, executing `ble_setup.py` , defining the Notification-handling and 7697's 
                 print("not")
   ``` 
   
- ** waitNot() and listen are both added to threading => simultaneously
+ ** waitNot() and listen are both added to threading => simultaneously running in threads, listening notification or data sent in.
 ### Pen
 The pen is combined with 7697-linkit to get its clicking function.  The tip of it is marked to help the recognition for now.
 筆的圖
