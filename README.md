@@ -44,17 +44,39 @@ After binding socket on (host,port) and building the connection, Rpi sends the p
 #### Controlling
 `from pynput.mouse import Button, Controller`  Pynput offers the capability of directly read/writing the value of the controller and its left/right button.
 `mouse.position(x,y)` can be used to set the position of the cursor.
+或許可以用function執行前後的截圖來呈現
 
 #### Socket listening
 After the program starts, PC tries connecting its own client to RPi socket until sucessfully connected. Then, PC keeps listening the data sent and use them to change the position of the cursor.
 
 #### BLE server
-In PC, executing `ble_setup.py` , defining the Notification-handling
-或許可以用function執行前後的截圖來呈現
+In PC, executing `ble_setup.py` , defining the Notification-handling and 7697's properties. The notification's handle is assigned to be that button of 7697, so that the "press or not of the left button" can be controlled by the working state of 7697's button through the BLE Notification.
+  ```
+   if (cHandle== self.button2_handle ):
+            #print("button1")
+            if self.state ==0:
+                mouse = gl.get_value('mouse')
+                mouse.press(Button.left)
+                self.state =1
+            elif self.state ==1 :
+                self.state =0
+                mouse = gl.get_value('mouse')
+                mouse.release(Button.left)
+  ```
+  ``` 
+      def waitNot(self):   ##wait (for) Not(ification)##
+        while True:
+            if self.dev_button.waitForNotifications(0.1):
+                print("not")
+  ``` 
+  
+ ** waitNot() and listen are both added to threading => simultaneously
 ### Pen
+The pen is combined with 7697-linkit to get its clicking function.  The tip of it is marked to help the recognition for now.
 筆的圖
-#### BLE periphral -- button
-ble connection (still toward pynput?)
+#### BLE periphral -- 7697
+Being connected by PC's BLE server as a peripheral. Set and waited for button state-change notification on PC.
+Power supply needed for running the BLE peripheral.
 ## Execution
 在持有所需的器材時
 如何利用GitHub上的檔案執行此功能
