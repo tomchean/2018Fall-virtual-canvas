@@ -36,12 +36,24 @@ In code, we specify the canvas part `mask`. By placing a piece of paper and pre-
 
 #### Tracking the pen
 圖
-While the program's running, it repeatly capture a frame and determine the pentip by drawing contours around marked part(neartip) of pen and
+While the program's running, it repeatly capture a frame and determine the pentip by drawing contours around marked part(neartip) of pen and getting its center of mass(contained its position).
+
+#### Socket
+After binding socket on (host,port) and building the connection, Rpi sends the position once per frame to the listening PC.
 ### PC
-pynput語法示意
+#### Controlling
+`from pynput.mouse import Button, Controller`  Pynput offers the capability of directly read/writing the value of the controller and its left/right button.
+`mouse.position(x,y)` can be used to set the position of the cursor.
+
+#### Socket listening
+After the program starts, PC tries connecting its own client to RPi socket until sucessfully connected. Then, PC keeps listening the data sent and use them to change the position of the cursor.
+
+#### BLE server
+In PC, executing `ble_setup.py` , defining the Notification-handling
 或許可以用function執行前後的截圖來呈現
 ### Pen
 筆的圖
+#### BLE periphral -- button
 ble connection (still toward pynput?)
 ## Execution
 在持有所需的器材時
