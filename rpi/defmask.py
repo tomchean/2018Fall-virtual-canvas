@@ -18,21 +18,21 @@ def defmask(frame):
 
     res = cv2.bitwise_and(frame, frame, mask=mask2)
 
-    frame = cv2.GaussianBlur(res, (5,5), 0)
+    #frame = cv2.GaussianBlur(res, (5,5), 0)
 
     canny = cv2.Canny(res, 30, 100)   
 
     contours, _ = cv2.findContours(canny,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
     
     c = max(contours, key = cv2.contourArea)
-
+ 
     arclen = cv2.arcLength(c,True)
 
     approx = cv2.approxPolyDP(c,0.02*arclen,True)    
 
     approx = approx.reshape((-1,1,2)) 
 
-    rect = np.zeros(frame.shape[:2],dtype = "uint8")
+    #rect = np.zeros(frame.shape[:2],dtype = "uint8")
 
     cv2.fillPoly(frame, [approx], (0, 255, 0))
 
@@ -68,10 +68,9 @@ if __name__ == "__main__":
 
     while True:
         ret, frame = cam.read()
-
         #rect = np.zeros(frame.shape[:2],dtype = "uint8")
 
-        #cv2.imshow('client',frame)
+        #cv2.imshow('server',frame)
         cv2.waitKey(1)
         frame , approx = defmask(frame)
         
@@ -82,15 +81,17 @@ if __name__ == "__main__":
         data = pickle.dumps(frame, 0)
         size = len(data)
 
-
+        #conn.settimeout(1)
         #print("{}: {}".format(img_counter, size))
-        conn.sendall(struct.pack(">L", size) + data)
-        conn.settimeout(0.1)
+        
         try:
+            conn.sendall(struct.pack(">L", size) + data)
+            conn.settimeout(0.2)
             data = conn.recv(30).decode()
             conn.close()
             s.close()
             print(approx)
+            cam.release()
             np.save("mask.npy",approx)
             break
             
@@ -98,4 +99,4 @@ if __name__ == "__main__":
             continue
         img_counter += 1
 
-    cam.release()
+    

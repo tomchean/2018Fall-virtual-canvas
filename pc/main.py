@@ -4,8 +4,9 @@ from pynput.mouse import Button, Controller
 import globalv as gl
 import threading
 import socket
+from mymouse import *
 
-def listen(self):
+def listen():
     while True:
         try:
             client = socket.socket() 
@@ -19,11 +20,9 @@ def listen(self):
             if not data:
                     break
             print ("from connected  user: " + str(data))
-            
-            data = str(data).upper()
-            print ("sending: " + str(data))
-            client.send(data.encode())
-            
+            tmp = str(data).split(' ')
+            update_mouse(int(tmp[0]) ,int(tmp[1]))
+
     client.close()
 
 if __name__ == "__main__":

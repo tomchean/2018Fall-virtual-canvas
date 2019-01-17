@@ -35,7 +35,7 @@ if __name__ == "__main__":
     multx = 1920/(xmax - xmin)
     multy = 1080/(ymax - ymin)
 
-    print(xmax," ",xmin," ",ymax," ",ymin)
+    print(xmax,xmin,ymax,ymin)
 
     while(1):
 
