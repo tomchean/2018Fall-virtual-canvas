@@ -20,9 +20,10 @@ The programs are written in Python.
  Structure：
 ![Structure](/img/report/Structure.jpg)
  There are roughly three parts to realize the function of virtual canvas.
-   - Utilizing image processing as the main part on Rpi with an USB camera.
+   - Utilizing image processing as the main part on Rpi with an USB camera. (websocket used to send position data)
    - Using pynput library on PC to control the moving the cursor on screen. (like mouse/digital tablet!)
    - Linkit 7697 attached to the pen allowing the clicking/dragging function of the mouse to be trasnfer to PC by BLE connection.
+   
 ### Rpi - USBcamera
 `cv2` is how the OpenCV library is imported in code. 
 Because we use OpenCV's image capturing and processing functions, `numpy (imported as np)` is used in their input/output to represent the data format of images. 
@@ -41,7 +42,7 @@ tracking畫面圖
 While the program's running, it repeatly capture a frame and determine the pentip by drawing contours around marked part(neartip) of pen and getting its center of mass(contained its position).
 
 #### Socket
-After binding socket on (host,port) and building the connection, Rpi sends the position once per frame to the listening PC.
+After binding socket on (host,port) and hosting, Rpi sends the position once per frame to the listening PC(client).
 ### PC
 #### Controlling
 `from pynput.mouse import Button, Controller`  Pynput offers the capability of directly read/writing the value of the controller and its left/right button.
