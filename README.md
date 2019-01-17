@@ -32,10 +32,12 @@ As beginning, Rpi is connected with the USB camera, as video input device.  Then
 After the camera "sees" the movement of pentip on the predecided 'canvas', Rpi sends the current position through the web socket to PC, to alter the position of cursor.
 #### Detection of canvas
 canvas取得之圖
+
 In code, we specify the canvas part `mask`. By placing a piece of paper and pre-recognizing it, the canvas area is selected (it can be any irregular quadrilateral) and the vertices are recorded to calculate the relative position.
 
 #### Tracking the pen
-圖
+tracking畫面圖
+
 While the program's running, it repeatly capture a frame and determine the pentip by drawing contours around marked part(neartip) of pen and getting its center of mass(contained its position).
 
 #### Socket
@@ -44,6 +46,7 @@ After binding socket on (host,port) and building the connection, Rpi sends the p
 #### Controlling
 `from pynput.mouse import Button, Controller`  Pynput offers the capability of directly read/writing the value of the controller and its left/right button.
 `mouse.position(x,y)` can be used to set the position of the cursor.
+
 或許可以用function執行前後的截圖來呈現
 
 #### Socket listening
@@ -73,6 +76,7 @@ In PC, executing `ble_setup.py` , defining the Notification-handling and 7697's 
  ** waitNot() and listen are both added to threading => simultaneously running in threads, listening notification or data sent in.
 ### Pen
 The pen is combined with 7697-linkit to get its clicking function.  The tip of it is marked to help the recognition for now.
+
 筆的圖
 #### BLE periphral -- 7697
 Being connected by PC's BLE server as a peripheral. Set and waited for button state-change notification on PC.
