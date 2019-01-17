@@ -84,7 +84,7 @@ Being connected by PC's BLE server as a peripheral. Set and waited for button st
 Power supply needed for running the BLE peripheral.
 
 ## Result
-### [Demo](https://youtu.be/9hrwxrhL5-c)
+###    [Demo](https://youtu.be/9hrwxrhL5-c)
 
 ## Reference
 - [OpenCV](https://opencv.org/)
