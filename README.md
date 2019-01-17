@@ -9,6 +9,7 @@ However, the tablet itself still holds some drawbacks: not adequately comfortabl
 There should be a way to provide a much more convenient experience.
 
 ## Dependency
+The programs are written in Python.
 - Numpy
 - OpenCV
 - websocket
@@ -23,6 +24,11 @@ There should be a way to provide a much more convenient experience.
    - Using pynput library on PC to control the moving the cursor on screen. (like mouse/digital tablet!)
    - Linkit 7697 attached to the pen allowing the clicking/dragging function of the mouse to be trasnfer to PC by BLE connection.
 ### Rpi - USBcamera
+`cv2` is how the OpenCV library is imported in code. 
+Because we use OpenCV's image capturing and processing functions, `numpy (imported as np)` is used in their input/output to represent the data format of images. 
+
+As beginning, Rpi is connected with the USB camera, as video input device.  Then we assign `cap = cv2.VideoCapture()` so that we can read the frames from `cap` anytime for any part of the processing.
+
 概述opencv?
 #### Detection of canvas
 canvas取得之圖
