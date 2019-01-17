@@ -19,7 +19,7 @@ def listen():
             data = client.recv(1024).decode()
             if not data:
                     break
-            print ("from connected  user: " + str(data))
+            #print ("from connected  user: " + str(data))
             tmp = str(data).split(' ')
             update_mouse(int(tmp[0]) ,int(tmp[1]))
 
