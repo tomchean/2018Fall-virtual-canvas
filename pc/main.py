@@ -1,6 +1,4 @@
-import asyncio
 from ble_setup import * 
-from mysocket import *
 import time
 from pynput.mouse import Button, Controller
 import globalv as gl
@@ -8,9 +6,13 @@ import threading
 import socket
 
 def listen(self):
-
-    client = socket.socket() 
-    client.connect(('192.168.43.211',5000))
+    while True:
+        try:
+            client = socket.socket() 
+            client.connect(('192.168.43.211',5000))
+            break
+        except:
+            continue
 
     while True:
             data = client.recv(1024).decode()
