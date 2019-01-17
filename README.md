@@ -1,6 +1,3 @@
-# 2018Fall-Virtual-Canvas
-
-This is a project that utilizes image processing to realize a canvas
 
 ## Motivation
 During the daily usage of computer graphic software, it seems that using digital tablets with its matching pen can do a lot better than just using the mouse.
