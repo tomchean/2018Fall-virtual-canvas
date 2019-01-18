@@ -78,7 +78,7 @@ In PC, executing `ble_setup.py` , defining the Notification-handling and 7697's 
 ### Pen
 The pen is combined with 7697-linkit to get its clicking function.  The tip of it is marked to help the recognition for now.
 
-![筆的圖](/img/report/pen.jpg)
+![筆的圖](/img/report/pen.png)
 #### BLE periphral -- 7697
 Being connected by PC's BLE server as a peripheral. Set and waited for button state-change notification on PC.
 Power supply needed for running the BLE peripheral.
