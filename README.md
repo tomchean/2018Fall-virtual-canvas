@@ -7,6 +7,8 @@ During the daily usage of computer graphic software, it seems that using digital
 However, the tablet itself still holds some drawbacks: not adequately comfortable to be carried along, easily scratched after some period of usage, (for some) some comsumables needed(battery, pentips,etc..) for the whole device.
 
 There should be a way to provide a much more convenient experience.
+### Result
+#### [Demo](https://youtu.be/9hrwxrhL5-c)
 
 ## Dependency
 The programs are written in Python.
@@ -82,9 +84,6 @@ The pen is combined with 7697-linkit to get its clicking function.  The tip of i
 #### BLE periphral -- 7697
 Being connected by PC's BLE server as a peripheral. Set and waited for button state-change notification on PC.
 Power supply needed for running the BLE peripheral.
-
-### Result
-#### [Demo](https://youtu.be/9hrwxrhL5-c)
 
 ## Reference
 - [OpenCV](https://opencv.org/)
